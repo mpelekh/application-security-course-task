@@ -1,0 +1,15 @@
+{
+  "name": "application-security-course-task",
+  "version": "1.0.0",
+  "description": "Authenticator app skeleton with basic login and sign-up (registration) functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mykola Pelekh",
+  "license": "ISC",
+  "dependencies": {
+    "prompts": "^2.3.0",
+    "sqlite": "^3.0.3"
+  }
+}
