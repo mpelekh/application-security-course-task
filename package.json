@@ -4,7 +4,7 @@
   "description": "Authenticator app skeleton with basic login and sign-up (registration) functionality",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Mykola Pelekh",
   "license": "ISC",
