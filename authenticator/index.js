@@ -10,24 +10,29 @@ class Authenticator {
         return false;
       }
 
+      // https://nodejs.org/api/crypto.html#crypto_crypto_scryptsync_password_salt_keylen_options
+      // crypto.scryptSync(password, salt, keylen[, options])
+      console.time("Login - find password hash");
       const passwordHash = crypto
-        .createHmac("sha256", userInfo.salt)
-        .update(password)
-        .digest("hex");
+        .scryptSync(password, userInfo.salt, 64)
+        .toString("hex");
+      console.timeEnd("Login - find password hash");
 
       return passwordHash === userInfo.password_hash;
     } catch (error) {
+      console.log(error);
       throw new Error("Can't login.");
     }
   }
 
   static async register({ firstName, lastName, user, password }) {
     try {
-      const salt = crypto.randomBytes(8).toString("hex"); // The result will be 16 chars string.
+      const salt = crypto.randomBytes(16).toString("hex"); // The result will be 32 chars string.
+      // https://nodejs.org/api/crypto.html#crypto_crypto_scryptsync_password_salt_keylen_options
+      // crypto.scryptSync(password, salt, keylen[, options])
       const passwordHash = crypto
-        .createHmac("sha256", salt)
-        .update(password)
-        .digest("hex");
+        .scryptSync(password, salt, 64)
+        .toString("hex");
 
       await userRepository.registerUser({
         firstName,

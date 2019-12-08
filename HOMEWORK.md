@@ -16,3 +16,10 @@ Functionality:
 Programming language:
 - any. Understandability of code is our friend! ;)
 - [optional] it should be possible to run/compile app without extra overhead. HOWTO guides are welcome
+
+## Home task 2
+- Set up PKI for client and server communcation.
+- Use pbkdf2/scrypt/bcrypt to hash and keep password.
+
+OpenSSL library was used to set up PKI.  
+How To is [here](https://github.com/mpelekh/application-security-course-task/blob/master/PKI-HOW-TO.md).

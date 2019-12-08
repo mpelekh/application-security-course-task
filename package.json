@@ -4,7 +4,9 @@
   "description": "Authenticator app skeleton with basic login and sign-up (registration) functionality",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start:server": "node server/index.js",
+    "start:client": "node clients/authorized-client/index.js",
+    "start:unauthorized-client": "node clients/unauthorized-client/index.js"
   },
   "author": "Mykola Pelekh",
   "license": "ISC",

@@ -1,0 +1,1 @@
+The unauthorized client has self-signed certificate.

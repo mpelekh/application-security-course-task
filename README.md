@@ -15,10 +15,23 @@ The home task is provided in [HOMEWORK.md](https://github.com/mpelekh/applicatio
 **Programming Language**: JavaScript
 
 ## Development
+
+Before starting all needed packages should be installed.
+
+### `npm install`
+
 ### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start:server`
 
-Launces the simple terminal application.
+Launches the authentication server.
+
+### `npm start:client`
+
+Launches the authorized client.
+
+### `npm start:unauthorized-client`
+
+Launches the unauthorized client.

@@ -1,0 +1,1 @@
+The CA certificate and its private key are kept here.
