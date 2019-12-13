@@ -39,17 +39,19 @@ const server = tls.createServer(options, socket => {
       case "login": {
         try {
           const { user, password } = userInfo;
-          const isLoggedIn = await Authenticator.login({ user, password });
+          const loginInfo = await Authenticator.login({ user, password });
           let message = "";
 
-          if (isLoggedIn) {
+          if (loginInfo) {
             message = `✔️  ${clientName} - Success login`;
           } else {
             message = `❌  ${clientName} - Wrong login or password`;
           }
 
           console.log(message);
-          socket.write(message);
+          socket.write(
+            message + "\n" + (loginInfo ? JSON.stringify(loginInfo) : "")
+          );
         } catch (error) {
           console.error(error.message);
         }
@@ -57,14 +59,15 @@ const server = tls.createServer(options, socket => {
       }
 
       case "register": {
-        const { firstName, lastName, user, password } = userInfo;
+        const { firstName, lastName, user, password, salary } = userInfo;
 
         try {
           const isRegistered = await Authenticator.register({
             firstName,
             lastName,
             user,
-            password
+            password,
+            salary
           });
           let message = "";
 
@@ -85,6 +88,6 @@ const server = tls.createServer(options, socket => {
   });
 });
 
-server.listen(8000, () => {
+server.listen(8888, () => {
   console.log("server bound");
 });

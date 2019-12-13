@@ -11,7 +11,16 @@ class UserRepository extends Repository {
     return this.storage.getItem({ key: "user", value: user });
   }
 
-  async registerUser({ firstName, lastName, user, passwordHash, salt }) {
+  async registerUser({
+    firstName,
+    lastName,
+    user,
+    passwordHash,
+    salt,
+    salary,
+    initializationVector,
+    authTag
+  }) {
     await this.storage.initialize();
     return this.storage.insertItem({
       insertTo: "users",
@@ -20,7 +29,10 @@ class UserRepository extends Repository {
         last_name: lastName,
         user,
         password_hash: passwordHash,
-        salt
+        salt,
+        salary,
+        initialization_vector: initializationVector,
+        auth_tag: authTag
       }
     });
   }

@@ -53,6 +53,11 @@ async function getUserInfo() {
         },
         {
           type: "text",
+          name: "salary",
+          message: "Salary"
+        },
+        {
+          type: "text",
           name: "user",
           message: "User name (nickname)",
           validate: input =>
@@ -69,11 +74,13 @@ async function getUserInfo() {
         }
       ];
 
-      const { firstName, lastName, user, password } = await prompt(questions);
+      const { firstName, lastName, salary, user, password } = await prompt(
+        questions
+      );
 
       return {
         action,
-        userInfo: { firstName, lastName, user, password }
+        userInfo: { firstName, lastName, salary, user, password }
       };
     }
   }

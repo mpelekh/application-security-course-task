@@ -10,7 +10,7 @@ const options = {
   key: fs.readFileSync(path.join(__dirname, "./client1-key.pem")),
   cert: fs.readFileSync(path.join(__dirname, "./client1-crt.pem")),
   host: "localhost",
-  port: 8000
+  port: 8888
 };
 const CLIENT_NAME = "client1";
 
